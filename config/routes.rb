@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :items
   end
   get 'customers/mypage' => 'public/customers#show', as: 'mypage'
-  # namespace :public do
-  # end
+  namespace :public do
+    resources :customers
+  end
 end

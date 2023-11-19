@@ -1,1 +1,33 @@
-hey this is me
+<h1>マイページ</h1>
+<h2>登録情報</h2> <link_to 
+
+<div class="col-md-8 offset-md-1">
+<table class="table table-hover table-inverse">
+<tbody>
+  <tr>
+    <td>氏名</td>
+    <td><%= current_customer.firstname%> <%= current_customer.lastname%></td>
+  </tr>
+  <tr>
+    <td>カナ</td>
+    <td><%= current_customer.firstname_kana %> <%= current_customer.lastname_kana %></td>
+  </tr>
+  <tr>
+    <td>郵便番号</td>
+    <td><%= current_customer.postal_code %></td>
+  </tr>
+  <tr>
+    <td>住所</td>
+    <td><%= current_customer.address %></td>
+  </tr>
+  <tr>
+    <td>電話番号</td>
+    <td><%= current_customer.phone %></td>
+  </tr>
+  <tr>
+    <td>メールアドレス</td>
+    <td><%= current_customer.email %></td>
+  </tr>
+</tbody>
+</table>
+</div>
