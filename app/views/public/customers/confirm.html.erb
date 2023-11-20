@@ -8,5 +8,5 @@ div {text-align: center;}
 これまでの購入履歴が閲覧できなくなります.<br>
 退会する場合は, 「退会する」をクリックしてください.</p>
 
-<div><%= button_to "退会する", public_withdraw_path, method: :patch %></div>
+<div><%= button_to "退会する", public_withdraw_path, method: :patch, data: {confirm: "退会しますか？"} %></div>
 <div><%= button_to "退会しない", mypage_path, method: :get %></div>
