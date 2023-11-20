@@ -15,7 +15,13 @@
     <td><%= customer.id %></td>
     <td><%= customer.lastname %></td>
     <td><%= customer.email %></td>
-    <td><%= customer.is_active %></td>
+    <td>
+      <% if customer.is_active %>
+        <%= "有効" %>
+      <% else %>
+        <%= "退会" %>
+      <% end %>
+    </td>
   </tr>
   <% end %>
 </tbody>
