@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'customers/confirm' => 'public/customers#confirm', as: 'confirm'
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers, skip: [:passwords], controllers: {
@@ -14,9 +15,12 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
   namespace :admin do
       resources :items
+      resources :customers
   end
   get 'customers/mypage' => 'public/customers#show', as: 'mypage'
+
   namespace :public do
     resources :customers
+    patch 'customers/info/withdraw' => 'customers#withdraw', as: 'withdraw'
   end
 end

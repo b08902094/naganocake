@@ -1,17 +1,5 @@
 <h2>登録情報編集</h2>
-
 <%= form_with model: @customer, local: true do |f|  %>
-  <%= render "public/shared/error_messages", resource: resource %>
-  <table class="customer_info customer_form">
-    <thead>
-      <th></th>
-      <th></th>
-      <th></th>
-    </thead>
-    <tbody>
-      <tr>
-      <div class="field">
-        <tr>
           <td>名前</td>
           <td><%= f.label :firstname, "(姓)" %> <%= f.text_field :firstname, autofocus: true %></td>
           <td><%= f.label :lastname, "(名)" %> <%= f.text_field :lastname %></td>
@@ -56,7 +44,7 @@
       <tr>
       <div class="field">
         <td><%= f.label :password_confirmation, "パスワード(確認用)"%></td>
-        <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+        <td><%= f.password_field :password_confirmation %></td>
       </div>
       </td></tr>
       <div class="actions">

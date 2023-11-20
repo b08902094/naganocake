@@ -1,0 +1,12 @@
+<style>
+h4 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
+<h4>本当に退会しますか？</h4>
+<p>退会すると, 会員登録情報や<br>
+これまでの購入履歴が閲覧できなくなります.<br>
+退会する場合は, 「退会する」をクリックしてください.</p>
+
+<div><%= button_to "退会する", public_withdraw_path, method: :patch %></div>
+<div><%= button_to "退会しない", mypage_path, method: :get %></div>
