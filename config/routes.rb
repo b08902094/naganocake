@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
   get 'customers/mypage' => 'public/customers#show', as: 'mypage'
 
-  namespace :public do
+  scope module: :public do
     resources :customers
     resources :items
     patch 'customers/info/withdraw' => 'customers#withdraw', as: 'withdraw'

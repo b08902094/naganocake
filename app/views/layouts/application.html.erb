@@ -29,7 +29,7 @@
             <a class="nav-link text-light" href = "<%= mypage_path %>"><i class="fas fa-home"></i>マイページ</a>
           </li>
           <li>
-            <a class="nav-link text-light" href="<%= public_items_path %>"><i class="fas fa-users"></i> 商品一覧</a>
+            <a class="nav-link text-light" href="<%= items_path %>"><i class="fas fa-users"></i> 商品一覧</a>
           </li>
           <li>
             <a class="nav-link text-light" href="/">
@@ -60,7 +60,7 @@
           </li>
           <% else %>
           <li>
-            <a class="nav-link text-light" href="/"><i class="fas fa-link"></i>商品一覧</a></li>
+            <a class="nav-link text-light" href=<%= items_path %>><i class="fas fa-link"></i>商品一覧</a></li>
           <li>
             <a class="nav-link text-light" href="/customers/sign_up"><i class="fas fa-user-plus"></i>新規登録</a>
           </li>

@@ -5,7 +5,7 @@
   <% if item.is_active then%>
   <td><%= image_tag item.get_image("200") %></td>
   <td><%= item.name %></td>
-  <td><%= item.price_before_tax*1.1.ceil %> 円 </td>
+  <td><%= ((item.price_before_tax)*(1.1)).ceil %> 円 </td>
   <td></td>
   </tr>
   <% end %>
