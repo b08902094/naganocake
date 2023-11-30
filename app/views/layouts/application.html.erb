@@ -29,7 +29,7 @@
             <a class="nav-link text-light" href = "<%= mypage_path %>"><i class="fas fa-home"></i>マイページ</a>
           </li>
           <li>
-            <a class="nav-link text-light" href="/"><i class="fas fa-users"></i> 商品一覧</a>
+            <a class="nav-link text-light" href="<%= public_items_path %>"><i class="fas fa-users"></i> 商品一覧</a>
           </li>
           <li>
             <a class="nav-link text-light" href="/">
@@ -41,17 +41,17 @@
           </li>
           <% elsif admin_signed_in? %>
           <li>
-            <a class="nav-link text-light" href = "/"><i class="fas fa-home"></i>商品一覧</a>
+            <a class="nav-link text-light" href = <%= admin_items_path %>><i class="fas fa-home"></i>商品一覧</a>
           </li>
           <li>
-            <a class="nav-link text-light" href="<%= admin_customers_path%>"><i class="fas fa-users"></i> 会員一覧</a>
+            <a class="nav-link text-light" href="<%= admin_customers_path %>"><i class="fas fa-users"></i> 会員一覧</a>
           </li>
           <li>
             <a class="nav-link text-light" href="/">
               <i class="fas fa-book-open"></i>注文履歴一覧</a>
           </li>
           <li>
-            <a class="nav-link text-light" href="/">
+            <a class="nav-link text-light" href=<%= admin_genres_path %>>
               <i class="fas fa-book-open"></i>ジャンル一覧</a>
           </li>
           <li>

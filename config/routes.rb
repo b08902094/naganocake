@@ -15,12 +15,14 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
   namespace :admin do
       resources :items
+      resources :genres
       resources :customers
   end
   get 'customers/mypage' => 'public/customers#show', as: 'mypage'
 
   namespace :public do
     resources :customers
+    resources :items
     patch 'customers/info/withdraw' => 'customers#withdraw', as: 'withdraw'
   end
 end

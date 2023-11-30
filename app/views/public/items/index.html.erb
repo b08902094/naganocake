@@ -1,2 +1,13 @@
 <h1>商品一覧</h1>
-<%=  %>
+<table class="table-hover">
+<% @items.each do |item| %>
+  <tr>
+  <% if item.is_active then%>
+  <td><%= image_tag item.get_image("200") %></td>
+  <td><%= item.name %></td>
+  <td><%= item.price_before_tax*1.1.ceil %> 円 </td>
+  <td></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>

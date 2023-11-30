@@ -1,0 +1,57 @@
+<h1>Submission Form</h1>
+
+<% if @item.errors.any? %>
+  <%= @item.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @item.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @item, url: admin_items_path, local: true do |f| %>
+	<div class="flex">
+		<div>
+			<%= f.label :item_image, "画像" %>
+				<span class="btn btn-file btn-info"><%= f.file_field :item_image,  accept:'image/*' %>画像選択</span>
+		</div>
+		<table class="admin_item_info item_form">
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= f.label :name, "商品名" %></td>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :description, "商品説明" %></td>
+					<td><%= f.text_area :description, rows: 3 %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :genre_id, "ジャンル" %></td>
+					<td class="select_field"><%= f.collection_select :genre_id, Genre.all, :id, :name %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :price_before_tax, "税抜価格" %></td>
+					<td><%= f.number_field :price_before_tax %> 円</td>
+				</tr>
+				<tr>
+					<td><%= f.label :sales_status, "販売ステータス" %></td>
+					<td class="select_field">
+						<%= f.radio_button :is_active, true %>
+						<%= f.label :is_active, "販売中", class: "text-active" %>
+						<%= f.radio_button :is_active, false %>
+						<%= f.label :is_active, "販売停止中", class: "text-invalid" %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="flex align-center pl5">
+			<%= f.submit '登録', class: "btn btn-primary" %>
+		</div>
+	</div>
+<% end %>
