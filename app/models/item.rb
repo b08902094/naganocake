@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   has_one_attached :item_image
   belongs_to :genre
+  has_many :cart_items
 
   validates :name, presence: true
   validates :description, presence: true
@@ -16,5 +17,9 @@ class Item < ApplicationRecord
     else
       item_image.variant(resize: '300')
     end
+  end
+
+  def with_tax_price
+    (price_before_tax * 1.1).floor
   end
 end

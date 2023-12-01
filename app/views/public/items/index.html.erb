@@ -4,8 +4,8 @@
   <tr>
   <% if item.is_active then%>
   <td><%= image_tag item.get_image("200") %></td>
-  <td><%= item.name %></td>
-  <td><%= ((item.price_before_tax)*(1.1)).ceil %> 円 </td>
+  <td><%= link_to item.name, item_path(item.id) %></td>
+  <td><%= item.with_tax_price %> 円 </td>
   <td></td>
   </tr>
   <% end %>

@@ -21,8 +21,12 @@ Rails.application.routes.draw do
   get 'customers/mypage' => 'public/customers#show', as: 'mypage'
 
   scope module: :public do
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all_cart_items'
     resources :customers
-    resources :items
+    resources :items do
+      resources :cart_items, only: [:create, :update, :destroy]
+    end
+    resources :cart_items, only: [:index]
     patch 'customers/info/withdraw' => 'customers#withdraw', as: 'withdraw'
   end
 end

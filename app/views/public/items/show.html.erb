@@ -1,0 +1,16 @@
+<h4>商品詳細</h4>
+<table>
+  <tr>
+  <td><%= image_tag @item.get_image("500") %></td>
+  <td><%= @item.name %></td>
+  <td>￥<%= @item.with_tax_price %> (税込)</td>
+  <% if customer_signed_in? %>
+  <td><%= form_with model: [@item, @cart_item] do |f| %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.select :quantity, *[1..10], { include_blank: '選択してください'} %>
+        <%= f.submit 'カートに入れる'%>
+      <% end %>
+    <% end %>
+  </td>
+  </tr>
+</table>
