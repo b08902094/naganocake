@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cart_items, dependent: :destroy
-
+  has_many :addresses, dependent: :destroy
   validates :lastname, presence: true
   validates :firstname, presence: true
   validates :lastname_kana, presence: true
