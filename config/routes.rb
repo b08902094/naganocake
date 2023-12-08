@@ -17,6 +17,9 @@ Rails.application.routes.draw do
       resources :items
       resources :genres
       resources :customers
+      resources :orders do
+        resources :order_details
+      end
   end
   get 'customers/mypage' => 'public/customers#show', as: 'mypage'
 
@@ -28,6 +31,10 @@ Rails.application.routes.draw do
     end
     resources :cart_items, only: [:index]
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
+    resources :orders, only: [:new, :index, :create, :show]
+    post 'orders/confirm' => 'orders#confirm', as: 'order_confirm'
+    get 'done' => 'orders#done', as: 'order_done'
+    resources :order_details
     patch 'customers/info/withdraw' => 'customers#withdraw', as: 'withdraw'
   end
 end
