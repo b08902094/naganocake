@@ -14,12 +14,13 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin/homes#top'
   root to: 'public/homes#top'
   namespace :admin do
-      resources :items
-      resources :genres
-      resources :customers
-      resources :orders do
-        resources :order_details
-      end
+    get 'search' => 'homes#search', as: 'search'
+    resources :items
+    resources :genres
+    resources :customers
+    resources :orders do
+      resources :order_details
+    end
   end
   get 'customers/mypage' => 'public/customers#show', as: 'mypage'
 

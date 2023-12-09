@@ -15,5 +15,21 @@ class Customer < ApplicationRecord
   validates :postal_code, presence: true
   validates :address, presence: true
   validates :phone, presence: true
-
+  def self.looks(search, keyword)
+    if search == "perfect_match"
+      @customer = Customer.where('lastname = ? OR firstname = ? OR lastname_kana = ? OR firstname_kana = ?',
+                  keyword, keyword, keyword, keyword)
+    elsif search == "forward_match"
+      @customer = Customer.where('lastname LIKE ? OR firstname LIKE? OR lastname_kana LIKE? OR firstname_kana LIKE?',
+                  "#{keyword}%", "#{keyword}%", "#{keyword}%", "#{keyword}%")
+    elsif search == "backward_match"
+      @customer = Customer.where('lastname LIKE ? OR firstname LIKE? OR lastname_kana LIKE? OR firstname_kana LIKE?',
+                  "%#{keyword}", "%#{keyword}", "%#{keyword}", "%#{keyword}")
+    elsif search == "partial_match"
+      @customer = Customer.where('lastname LIKE ? OR firstname LIKE? OR lastname_kana LIKE? OR firstname_kana LIKE?',
+                  "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%")
+    else
+      @customer = Customer.all
+    end
+  end
 end

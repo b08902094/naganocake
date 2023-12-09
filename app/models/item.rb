@@ -24,4 +24,18 @@ class Item < ApplicationRecord
   def with_tax_price
     (price_before_tax * 1.1).floor
   end
+
+  def self.looks(search, keyword)
+    if search == "perfect_match"
+      @item = Item.where("name = ?", keyword)
+    elsif search == "forward_match"
+      @item = Item.where("name LIKE?","#{keyword}%")
+    elsif search == "backward_match"
+      @item = Item.where("name LIKE?","%#{keyword}")
+    elsif search == "partial_match"
+      @item = Item.where("name LIKE?","%#{keyword}%")
+    else
+      @item = Item.all
+    end
+  end
 end
