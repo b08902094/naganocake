@@ -58,7 +58,7 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:customer_id, :payment_method, :postal_code, :address, :name, :quantity, :shipping_fee, :total)
+    params.require(:order).permit(:customer_id, :payment_method, :postal_code, :address, :name, :quantity, :shipping_fee, :total, :status)
   end
   def check_empty
     @cart_items = CartItem.all

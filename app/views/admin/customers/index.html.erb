@@ -13,7 +13,7 @@
   <% @customers.each do |customer| %>
   <tr>
     <td><%= customer.id %></td>
-    <td><%= customer.lastname %></td>
+    <td><%= customer.lastname + " " + customer.firstname %></td>
     <td><%= customer.email %></td>
     <td>
       <% if customer.is_active %>

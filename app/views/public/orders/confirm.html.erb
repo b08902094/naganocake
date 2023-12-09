@@ -57,5 +57,6 @@
   <%= f.hidden_field :total, value: @total + @order.shipping_fee %>
   <%= f.hidden_field :address, value: @order.address%>
   <%= f.hidden_field :name, value: @order.name %>
+  <%= f.hidden_field :status, value: "waiting_for_payment" %>
   <%= f.submit "注文を確定する", data: {confirm: "注文を確定しますか？"} %>
 <% end %>
